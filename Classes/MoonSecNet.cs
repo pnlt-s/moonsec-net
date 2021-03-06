@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Net;
 
@@ -13,6 +15,13 @@ namespace MoonSec
         string Bytecode = "1";
         string Options = "";
         public string EndFile = "deobfuscated.lua";
+
+        string[] AvOpt = new string[] {
+            "StringEncryption",
+            "ConstantEncryption",
+            "AntiDump",
+            "SmallOutput"
+        };
 
         public void UpdateOptions(bool[] options = null)
         {
@@ -31,23 +40,19 @@ namespace MoonSec
                     }
                 }
             }
+
+            List<string> list = new List<string>();
+
             Options = "";
-            if (options[0])
+            for (int i = 0; i < options.Length; i++)
             {
-                Options += "StringEncryption";
+                if (options[i])
+                {
+                    list.Add(AvOpt[i]);
+                }
             }
-            if (options[1])
-            {
-                Options += "+ConstantEncryption";
-            }
-            if (options[2])
-            {
-                Options += "+AntiDump";
-            }
-            if (options[3])
-            {
-                Options += "+SmallOutput";
-            }
+
+            Options = string.Join('+', list.ToArray());
         }
 
         public void UpdateBytecode(Bytecode bc = MoonSec.Bytecode.Symbols1)
@@ -85,6 +90,14 @@ namespace MoonSec
 
             try
             {
+                SaveFileDialog sfd = new SaveFileDialog();
+                sfd.Filter = "Lua files (*.lua)|*.lua|Text Files|*.txt|All Files|*.*";
+                sfd.FileName = "";
+                sfd.Title = "Select file to save result to";
+                if (sfd.ShowDialog() == true)
+                {
+                    EndFile = sfd.FileName;
+                }
                 var resp = await req.GetResponseAsync();
                 using (StreamReader sr = new StreamReader(resp.GetResponseStream()))
                 {

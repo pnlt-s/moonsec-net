@@ -20,10 +20,10 @@
     <Grid>
         <GroupBox Header="Options" FontFamily="Century Gothic" FontSize="18" Padding="5" Foreground="White" Width="285" Height="160" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="10 5">
             <StackPanel >
-                <CheckBox VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="String Encryption" IsChecked="true"/>
-                <CheckBox VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Constant Encryption" IsChecked="true"/>
-                <CheckBox VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Anti Dump" IsChecked="true"/>
-                <CheckBox VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Small Output" IsChecked="false"/>
+                <CheckBox x:Name="strEncCheck" Checked="strEncCheck_Checked" VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="String Encryption"/>
+                <CheckBox x:Name="constEncCheck" Checked="strEncCheck_Checked" VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Constant Encryption"/>
+                <CheckBox x:Name="antiDumpCheck" Checked="strEncCheck_Checked" VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Anti Dump"/>
+                <CheckBox x:Name="smallOutputCheck" Checked="strEncCheck_Checked" VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Small Output"/>
             </StackPanel>
         </GroupBox>
         <GroupBox Header="File Path" FontFamily="Century Gothic" FontSize="18" Padding="5" Foreground="White" Height="75" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10 75">
@@ -145,6 +145,5 @@
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <Label Content="Result will be: " x:Name="result" Foreground="White" FontFamily="Century Gothic" FontSize="16" Width="320" Height="70" HorizontalAlignment="Left" VerticalAlignment="Bottom"></Label>
     </Grid>
 </Window>

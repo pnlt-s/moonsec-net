@@ -28,7 +28,12 @@ namespace MoonSec
             Platforms.SelectedIndex = 0;
 
             Bytecodes.ItemsSource = ByteCodeCollection.GetList().Values;
-            Bytecodes.SelectedIndex = 2;            
+            Bytecodes.SelectedIndex = 2;
+
+            strEncCheck.IsChecked = true;
+            constEncCheck.IsChecked = true;
+            antiDumpCheck.IsChecked = true;
+            smallOutputCheck.IsChecked = false;
         }
 
         private void Platforms_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -62,9 +67,13 @@ namespace MoonSec
                     fileP = ofd.FileName;
                     file.Text = ofd.FileName;
                     moonSec.UpdateTarget(ofd.FileName);
-                    result.Content = "Result will be:\n" + moonSec.EndFile;
                 }
             }
+        }
+
+        private void strEncCheck_Checked(object sender, RoutedEventArgs e)
+        {
+            moonSec.UpdateOptions(new bool[] { strEncCheck.IsChecked == true, constEncCheck.IsChecked == true, antiDumpCheck.IsChecked == true, smallOutputCheck.IsChecked == true });
         }
     }
 }
