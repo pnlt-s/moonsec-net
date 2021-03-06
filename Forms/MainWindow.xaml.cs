@@ -75,5 +75,10 @@ namespace MoonSec
         {
             moonSec.UpdateOptions(new bool[] { strEncCheck.IsChecked == true, constEncCheck.IsChecked == true, antiDumpCheck.IsChecked == true, smallOutputCheck.IsChecked == true });
         }
+
+        private void Window_Closed(object sender, EventArgs e)
+        {
+            Application.Current.Shutdown();
+        }
     }
 }
