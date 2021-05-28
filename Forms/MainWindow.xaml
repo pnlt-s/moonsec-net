@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MoonSec" 
         mc:Ignorable="d"
-        Title="MoonSec" Height="350" Width="600"
+        Title="MoonSec" Height="360" Width="600"
         WindowStartupLocation="CenterScreen"
         ResizeMode="CanMinimize"
         Topmost="True"
@@ -27,7 +27,7 @@
                 <CheckBox x:Name="smallOutputCheck" Checked="strEncCheck_Checked" VerticalContentAlignment="Center" Height="30" FontSize="18" Foreground="White" FontFamily="Century Gothic" Content="Small Output"/>
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="File Path" FontFamily="Century Gothic" FontSize="18" Padding="5" Foreground="White" Height="75" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Margin="10 75">
+        <GroupBox Header="File Path" FontFamily="Century Gothic" FontSize="18" Padding="5" Foreground="White" Height="75" VerticalAlignment="Top" Margin="10,171,10,0">
             <DockPanel Height="30">
                 <TextBox x:Name="file" Width="450" VerticalContentAlignment="Center" Margin="5 0 5 0"></TextBox>
                 <Button x:Name="openFile" Width="75" VerticalContentAlignment="Center" Content="..." Click="openFile_Click"></Button>

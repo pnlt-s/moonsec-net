@@ -15,7 +15,7 @@ namespace MoonSec
         {
             InitializeComponent();
 
-            moonSec = new MoonSecNet("API Key Provided by MoonSec");
+            moonSec = new MoonSecNet("YOUR_API_KEY");
 
             Platforms.ItemsSource = PlatformCollection.GetPlatforms().Keys;
             Platforms.SelectedIndex = 0;

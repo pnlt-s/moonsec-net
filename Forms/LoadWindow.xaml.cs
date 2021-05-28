@@ -36,6 +36,7 @@ namespace MoonSec
 
         private async void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // checking server accessibility
             try
             {
                 var req = WebRequest.CreateHttp("https://api.f3d.at/v1/obfuscate.php");

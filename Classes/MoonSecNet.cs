@@ -1,5 +1,6 @@
 ﻿using Microsoft.Win32;
 using System;
+using System.Windows;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -13,7 +14,7 @@ namespace MoonSec
         string Platform = "Lua";
         string Bytecode = "1";
         string Options = "";
-        public string EndFile = "deobfuscated.lua";
+        public string EndFile = "obfuscated.lua";
 
         string[] AvOpt = new string[] {
             "StringEncryption",
@@ -105,6 +106,10 @@ namespace MoonSec
                         sw.WriteLine(sr.ReadToEnd());
                     }
                 }
+            }
+            catch (WebException we)
+            {
+                MessageBox.Show(we.Message);
             }
             catch (Exception e)
             {
